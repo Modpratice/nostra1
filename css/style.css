@@ -1,0 +1,965 @@
+/**
+ * Nostra Finance - Claim NSTR
+ * Pure Vanilla CSS with BEM Naming Convention
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Gochi+Hand&display=swap');
+
+:root {
+  /* Colors from Nostra Theme System */
+  --primary-020: #f8f9ff;
+  --primary-040: #f2f4ff;
+  --primary-060: #ebedfa;
+  --primary-080: #dae1f5;
+  --primary-100: #c4d1ec;
+  --primary-200: #a1b1d2;
+  --primary-300: #8998b7;
+  --primary-400: #707f9d;
+  --primary-500: #586582;
+  --primary-700: #27334d;
+  --primary-800: #0e1a33;
+  --primary-900: #0a1326;
+
+  --secondary-blue-500: #4869af;
+  --secondary-green-500: #42aaa3;
+  --secondary-purple-500: #b581d3;
+
+  --neutral-100: #ffffff;
+  --neutral-200: #f4f5f8;
+  --neutral-300: #e8eaee;
+  --neutral-400: #d9dce2;
+  --neutral-500: #b6b9be;
+  --neutral-600: #93969a;
+  --neutral-900: #2b2c2e;
+
+  --utility-green: #00b881;
+  --utility-red: #db2c2c;
+  --utility-amber: #e4a90b;
+  --utility-blue: #0c66e4;
+  --utility-blue-700: #084cac;
+
+  --brand-nostra: #ff4240;
+  --brand-nostra-hover: #ed3533;
+  --brand-nostra-active: #d62927;
+
+  --surface-body: var(--primary-060);
+  --surface-container-primary: var(--neutral-100);
+  --surface-sidebar: var(--primary-900);
+
+  --font-family-base: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  --button-shadow: 0px 1.5px 0px 0px rgba(255, 255, 255, 0.2) inset, 0px -1.5px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  --card-shadow: 0px 8px 30px rgba(10, 19, 38, 0.04);
+  --sidebar-width: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-base);
+  background-color: var(--surface-body);
+  color: var(--neutral-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Announcement Banner
+   ========================================================================== */
+.nostra-banner {
+  background-color: var(--utility-blue-700);
+  color: var(--neutral-100);
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 50;
+}
+
+.nostra-banner__content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nostra-banner__highlight {
+  font-weight: 700;
+}
+
+.nostra-banner__message {
+  font-weight: 400;
+  opacity: 0.96;
+}
+
+/* ==========================================================================
+   Main App Container
+   ========================================================================== */
+.nostra-layout {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 41px);
+  position: relative;
+}
+
+/* ==========================================================================
+   Sidebar Navigation
+   ========================================================================== */
+.nostra-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--surface-sidebar);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  flex-shrink: 0;
+  z-index: 40;
+  user-select: none;
+}
+
+.nostra-sidebar__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 28px;
+}
+
+.nostra-sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nostra-sidebar__brand:hover {
+  transform: scale(1.08);
+}
+
+.nostra-sidebar__brand-logo {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.nostra-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.nostra-sidebar__nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--primary-400);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+}
+
+.nostra-sidebar__nav-item:hover {
+  color: var(--neutral-100);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.nostra-sidebar__nav-item--active {
+  color: var(--neutral-100);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.nostra-sidebar__icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+}
+
+/* Tooltip on sidebar hover */
+.nostra-sidebar__tooltip {
+  position: absolute;
+  left: 60px;
+  background-color: var(--primary-800);
+  color: var(--neutral-100);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+}
+
+.nostra-sidebar__nav-item:hover .nostra-sidebar__tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Bottom footer of sidebar */
+.nostra-sidebar__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.nostra-sidebar__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--primary-400);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.nostra-sidebar__social-link:hover {
+  color: var(--neutral-100);
+  transform: translateY(-1px);
+}
+
+.nostra-sidebar__social-icon {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.nostra-sidebar__status {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nostra-sidebar__status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--utility-green);
+  box-shadow: 0 0 0 3px rgba(0, 184, 129, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nostra-sidebar__status:hover .nostra-sidebar__status-dot {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px rgba(0, 184, 129, 0.3);
+}
+
+/* ==========================================================================
+   Main Viewport Area
+   ========================================================================== */
+.nostra-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 48px 48px 48px;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+/* Top Navigation / Header */
+.nostra-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nostra-header__brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nostra-header__mobile-logo {
+  display: none;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.nostra-header__title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--primary-900);
+  line-height: 1.2;
+}
+
+.nostra-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Buttons */
+.nostra-button {
+  font-family: inherit;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.nostra-button:active {
+  transform: translateY(1px);
+}
+
+.nostra-button--primary {
+  background-color: var(--brand-nostra);
+  color: var(--neutral-100);
+  box-shadow: var(--button-shadow);
+}
+
+.nostra-button--primary:hover {
+  background-color: var(--brand-nostra-hover);
+}
+
+.nostra-button--primary:active {
+  background-color: var(--brand-nostra-active);
+}
+
+.nostra-button--header {
+  font-size: 14px;
+  padding: 8px 22px;
+  border-radius: var(--radius-md);
+  height: 38px;
+}
+
+.nostra-button--large {
+  width: 100%;
+  font-size: 16px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  height: 48px;
+}
+
+.nostra-button--connected {
+  background-color: var(--primary-800);
+  color: var(--neutral-100);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nostra-button--connected:hover {
+  background-color: var(--primary-700);
+}
+
+/* ==========================================================================
+   Claim Section & Card
+   ========================================================================== */
+.nostra-claim-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0 60px 0;
+  width: 100%;
+}
+
+.nostra-card {
+  width: 100%;
+  max-width: 485px;
+  background-color: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  padding: 36px 32px 36px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Decorative Illustration */
+.nostra-card__illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.nostra-card__svg-logo {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+}
+
+/* Card Information Block */
+.nostra-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.nostra-card__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.nostra-card__subtitle {
+  font-size: 15px;
+  color: var(--primary-500);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.nostra-card__action {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Connected State Content inside Card */
+.nostra-card__connected-view {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.nostra-card__connected-view--visible {
+  display: flex;
+}
+
+.nostra-card__initial-view--hidden {
+  display: none;
+}
+
+.nostra-card__reward-box {
+  background-color: var(--primary-040);
+  border: 1px solid var(--primary-080);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nostra-card__reward-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-400);
+  font-weight: 600;
+}
+
+.nostra-card__reward-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nostra-card__reward-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-900);
+}
+
+.nostra-card__reward-token {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--brand-nostra);
+}
+
+.nostra-card__disconnect-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary-400);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 4px;
+}
+
+.nostra-card__disconnect-btn:hover {
+  color: var(--primary-900);
+}
+
+/* ==========================================================================
+   Modal for Wallet Connection
+   ========================================================================== */
+.nostra-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 19, 38, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  padding: 16px;
+}
+
+.nostra-modal-backdrop--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nostra-modal {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(10, 19, 38, 0.16);
+  padding: 24px;
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.2s ease;
+}
+
+.nostra-modal-backdrop--open .nostra-modal {
+  transform: translateY(0) scale(1);
+}
+
+.nostra-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nostra-modal__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-900);
+}
+
+.nostra-modal__close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-400);
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nostra-modal__close:hover {
+  color: var(--primary-900);
+}
+
+.nostra-modal__wallets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nostra-wallet-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-080);
+  background-color: var(--neutral-100);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.nostra-wallet-item:hover {
+  background-color: var(--primary-040);
+  border-color: var(--primary-200);
+}
+
+.nostra-wallet-item__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nostra-wallet-item__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.nostra-wallet-item__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-900);
+}
+
+.nostra-wallet-item__badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-500);
+  background-color: var(--primary-080);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.nostra-modal__footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--primary-400);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.nostra-modal__footer a {
+  color: var(--secondary-blue-500);
+  text-decoration: none;
+}
+
+.nostra-modal__footer a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Toast Notification
+   ========================================================================== */
+.nostra-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--primary-900);
+  color: var(--neutral-100);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 1000;
+}
+
+.nostra-toast--visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nostra-toast__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--utility-green);
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Desktop, Tablet, Mobile)
+   ========================================================================== */
+
+/* 1. Large Desktops & Wide Screens (>= 1440px) */
+@media screen and (min-width: 1440px) {
+  .nostra-content {
+    padding: 40px 64px 64px 64px;
+  }
+
+  .nostra-card {
+    max-width: 500px;
+    padding: 40px 36px;
+  }
+}
+
+/* 2. Medium Desktops & Laptops (1025px - 1439px) */
+@media screen and (max-width: 1439px) and (min-width: 1025px) {
+  .nostra-content {
+    padding: 32px 40px 48px 40px;
+  }
+}
+
+/* 3. Tablets & Small Laptops (769px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --sidebar-width: 64px;
+  }
+
+  .nostra-content {
+    padding: 24px 28px 40px 28px;
+  }
+
+  .nostra-header__title {
+    font-size: 28px;
+  }
+
+  .nostra-card {
+    max-width: 440px;
+    padding: 30px 26px;
+  }
+
+  .nostra-card__illustration {
+    max-width: 340px;
+  }
+}
+
+/* 4. Mobile & Touch Devices (<= 768px) */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nostra-banner {
+    font-size: 12.5px;
+    padding: 9px 14px;
+    line-height: 1.4;
+  }
+
+  .nostra-layout {
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+  }
+
+  /* Fixed Bottom App Navigation */
+  .nostra-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(58px + env(safe-area-inset-bottom, 0px));
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)) 8px;
+    background-color: rgba(10, 19, 38, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 90;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nostra-sidebar__top {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nostra-sidebar__nav {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nostra-sidebar__nav-item {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nostra-sidebar__nav-item:active {
+    background-color: rgba(255, 255, 255, 0.16);
+    transform: scale(0.92);
+  }
+
+  .nostra-sidebar__brand,
+  .nostra-sidebar__bottom,
+  .nostra-sidebar__tooltip {
+    display: none !important;
+  }
+
+  /* Mobile Content View */
+  .nostra-content {
+    padding: 16px 16px calc(76px + env(safe-area-inset-bottom, 0px)) 16px;
+    min-height: auto;
+  }
+
+  .nostra-header {
+    margin-bottom: 8px;
+  }
+
+  .nostra-header__mobile-logo {
+    display: block;
+  }
+
+  .nostra-header__title {
+    font-size: 24px;
+    letter-spacing: -0.015em;
+  }
+
+  .nostra-header__actions .nostra-button--header {
+    height: 36px;
+    padding: 6px 18px;
+    font-size: 13.5px;
+  }
+
+  /* Mobile Claim Section & Card */
+  .nostra-claim-section {
+    padding: 16px 0 24px 0;
+    width: 100%;
+  }
+
+  .nostra-card {
+    padding: 24px 20px 28px 20px;
+    max-width: 100%;
+    border-radius: 14px;
+    gap: 20px;
+    box-shadow: 0 4px 18px rgba(10, 19, 38, 0.05);
+  }
+
+  .nostra-card__illustration {
+    padding-bottom: 0;
+    max-width: 100%;
+  }
+
+  .nostra-card__svg-logo {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .nostra-card__title {
+    font-size: 21px;
+    line-height: 1.25;
+  }
+
+  .nostra-card__subtitle {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .nostra-card__action {
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .nostra-button--large {
+    height: 48px;
+    font-size: 15px;
+    padding: 12px 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Responsive Modal for Mobile */
+  .nostra-modal-backdrop {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .nostra-modal {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 20px 18px calc(20px + env(safe-area-inset-bottom, 0px)) 18px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .nostra-toast {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    left: 16px;
+    justify-content: center;
+  }
+}
+
+/* 5. Compact Mobile Screens (<= 420px) */
+@media screen and (max-width: 420px) {
+  .nostra-banner {
+    font-size: 11.5px;
+    padding: 7px 10px;
+  }
+
+  .nostra-header__title {
+    font-size: 21px;
+  }
+
+  .nostra-card {
+    padding: 20px 14px 24px 14px;
+    border-radius: 12px;
+    gap: 16px;
+  }
+
+  .nostra-card__title {
+    font-size: 19px;
+  }
+
+  .nostra-card__subtitle {
+    font-size: 13.5px;
+  }
+
+  .nostra-card__svg-logo {
+    max-width: 280px;
+  }
+
+  .nostra-button--large {
+    height: 46px;
+    font-size: 14.5px;
+  }
+
+  .nostra-sidebar__nav-item {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nostra-sidebar__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+

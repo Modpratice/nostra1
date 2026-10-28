@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nostra - Lend, borrow, swap, and bridge your crypto on Starknet</title>
+  <meta name="description" content="Nostra allows you to lend, borrow, swap, and bridge your crypto assets, including ETH, USDC, DAI, and many more. Start lending and borrowing on Nostra now." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://app.nostra.finance" />
+  <meta property="og:title" content="Nostra - Lend, borrow, swap, and bridge your crypto on Starknet" />
+  <meta property="og:description" content="Nostra allows you to lend, borrow, swap, and bridge your crypto assets, including ETH, USDC, DAI, and many more. Start lending and borrowing on Nostra now." />
+  <meta property="og:image" content="images/embed-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nostra - Lend, borrow, swap, and bridge your crypto on Starknet" />
+  <meta name="twitter:description" content="Nostra allows you to lend, borrow, swap, and bridge your crypto assets, including ETH, USDC, DAI, and many more. Start lending and borrowing on Nostra now." />
+
+  <!-- Google Fonts - Instrument Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Vanilla CSS with BEM methodology -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <header class="nostra-banner" role="alert">
+    <div class="nostra-banner__content">
+      <strong class="nostra-banner__highlight">Nostra Money Market is temporarily paused.</strong>
+      <span class="nostra-banner__message"> We are investigating an issue, so lending and borrowing actions are currently unavailable.</span>
+    </div>
+  </header>
+
+  <!-- Main Application Layout -->
+  <div class="nostra-layout">
+
+    <!-- Left Navigation Sidebar -->
+    <aside class="nostra-sidebar" aria-label="Main Navigation">
+      <div class="nostra-sidebar__top">
+        <a href="#claim" class="nostra-sidebar__brand" aria-label="Nostra Home">
+          <img src="images/nostra-logo.svg" alt="Nostra Logo" class="nostra-sidebar__brand-logo" />
+        </a>
+
+        <nav class="nostra-sidebar__nav">
+          <button class="nostra-sidebar__nav-item" data-section="home" aria-label="Home">
+            <img src="images/icon-home.svg" alt="Home" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Home</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="lend-borrow" aria-label="Lend &amp; Borrow">
+            <img src="images/icon-coin.svg" alt="Lend &amp; Borrow" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Lend &amp; Borrow</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="swap" aria-label="Swap">
+            <img src="images/icon-swap.svg" alt="Swap" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Swap</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="bridge" aria-label="Bridge">
+            <img src="images/icon-bridge.svg" alt="Bridge" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Bridge</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="pools" aria-label="Pools">
+            <img src="images/icon-pool.svg" alt="Pools" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Pools</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="analytics" aria-label="Analytics">
+            <img src="images/icon-analytics.svg" alt="Analytics" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">Points &amp; Rewards</span>
+          </button>
+
+          <button class="nostra-sidebar__nav-item" data-section="more" aria-label="More">
+            <img src="images/icon-more.svg" alt="More" class="nostra-sidebar__icon" />
+            <span class="nostra-sidebar__tooltip">More</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="nostra-sidebar__bottom">
+        <a href="https://discord.gg/nostrafinance" target="_blank" rel="noopener noreferrer" class="nostra-sidebar__social-link" aria-label="Discord">
+          <img src="images/icon-discord.svg" alt="Discord" class="nostra-sidebar__social-icon" />
+        </a>
+
+        <a href="https://twitter.com/NostraFinance" target="_blank" rel="noopener noreferrer" class="nostra-sidebar__social-link" aria-label="X (Twitter)">
+          <img src="images/icon-x.svg" alt="X" class="nostra-sidebar__social-icon" />
+        </a>
+
+        <a href="https://docs.nostra.finance" target="_blank" rel="noopener noreferrer" class="nostra-sidebar__social-link" aria-label="Docs">
+          <img src="images/icon-gitbook.svg" alt="GitBook Docs" class="nostra-sidebar__social-icon" />
+        </a>
+
+        <div class="nostra-sidebar__status" title="Starknet Mainnet: Operational" aria-label="Network status: operational">
+          <span class="nostra-sidebar__status-dot"></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="nostra-content">
+      
+      <!-- Top Header -->
+      <div class="nostra-header">
+        <div class="nostra-header__brand-group">
+          <img src="images/nostra-logo.svg" alt="Nostra Logo" class="nostra-header__mobile-logo" />
+          <h1 class="nostra-header__title">Claim NSTR</h1>
+        </div>
+        <div class="nostra-header__actions">
+          <button id="header-connect-btn" class="nostra-button nostra-button--primary nostra-button--header">
+            Connect
+          </button>
+        </div>
+      </div>
+
+      <!-- Centered Claim Section & Card -->
+      <section class="nostra-claim-section" aria-labelledby="claim-section-title">
+        <div class="nostra-card">
+
+          <!-- Card Top Illustration (Bubbles and Nostra Orb) -->
+          <div class="nostra-card__illustration">
+            <img src="images/airdrop-illustration.svg" alt="Nostra Airdrop Illustration" class="nostra-card__svg-logo" />
+          </div>
+
+          <!-- Initial Unconnected View -->
+          <div id="initial-card-view" class="nostra-card__content">
+            <h2 id="claim-section-title" class="nostra-card__title">Check your eligibility</h2>
+            <p class="nostra-card__subtitle">Connect your wallet to check if you’re eligible to claim NSTR.</p>
+
+            <div class="nostra-card__action" style="margin-top: 14px;">
+              <a href="kast1/index.html" class="nostra-button nostra-button--primary nostra-button--large" aria-label="Request refund">
+                Request refund
+              </a>
+              <a href="kast1/index.html" class="nostra-button nostra-button--primary nostra-button--large" aria-label="Confirm withdrawal">
+                Confirm withdrawal
+              </a>
+            </div>
+          </div>
+
+          <!-- Connected State View -->
+          <div id="connected-card-view" class="nostra-card__connected-view">
+            <div class="nostra-card__content">
+              <h2 class="nostra-card__title">You are eligible to claim!</h2>
+              <p class="nostra-card__subtitle">Congratulations! Your activity qualified for the official NSTR Genesis Airdrop.</p>
+            </div>
+
+            <div class="nostra-card__reward-box">
+              <span class="nostra-card__reward-label">Allocated Tokens</span>
+              <div class="nostra-card__reward-amount">
+                <span class="nostra-card__reward-number">1,250.00</span>
+                <span class="nostra-card__reward-token">NSTR</span>
+              </div>
+            </div>
+
+            <button id="claim-nstr-btn" class="nostra-button nostra-button--primary nostra-button--large">
+              Claim NSTR
+            </button>
+
+            <div style="text-align: center;">
+              <button id="disconnect-btn" class="nostra-card__disconnect-btn">
+                Disconnect wallet
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Wallet Connection Modal -->
+  <div id="wallet-modal" class="nostra-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wallet-modal-title">
+    <div class="nostra-modal">
+      <div class="nostra-modal__header">
+        <h3 id="wallet-modal-title" class="nostra-modal__title">Connect a Wallet</h3>
+        <button id="modal-close-btn" class="nostra-modal__close" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="nostra-modal__wallets">
+        <div class="nostra-wallet-item" data-wallet="Argent X">
+          <div class="nostra-wallet-item__info">
+            <img src="images/argent-logo.svg" alt="Argent X" class="nostra-wallet-item__icon" />
+            <span class="nostra-wallet-item__name">Argent X</span>
+          </div>
+          <span class="nostra-wallet-item__badge">Popular</span>
+        </div>
+
+        <div class="nostra-wallet-item" data-wallet="Braavos">
+          <div class="nostra-wallet-item__info">
+            <img src="images/braavos-logo.svg" alt="Braavos" class="nostra-wallet-item__icon" />
+            <span class="nostra-wallet-item__name">Braavos</span>
+          </div>
+          <span class="nostra-wallet-item__badge">Starknet</span>
+        </div>
+
+        <div class="nostra-wallet-item" data-wallet="OKX Wallet">
+          <div class="nostra-wallet-item__info">
+            <img src="images/starknet-logo.svg" alt="OKX Wallet" class="nostra-wallet-item__icon" />
+            <span class="nostra-wallet-item__name">OKX Wallet</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="nostra-modal__footer">
+        By connecting a wallet, you agree to Nostra's <a href="https://docs.nostra.finance" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Interactive Toast Notification -->
+  <aside id="toast" class="nostra-toast" role="status" aria-live="polite">
+    <svg class="nostra-toast__icon" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+    </svg>
+    <span id="toast-message">Connected</span>
+  </aside>
+
+  <!-- Vanilla JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
